@@ -7,19 +7,21 @@ import Grid2 from "@mui/material/Unstable_Grid2";
 import {AppBar, Box, Container, Toolbar} from "@mui/material";
 import {FaDiscord, FaHandshake, FaInstagram, FaQuestion, FaScroll} from "react-icons/fa";
 import {HiOutlineClipboardDocumentCheck} from "react-icons/hi2";
+import {Application} from "pixi.js";
+import LandingBackground from "./LandingBackground";
 
 function App() {
+
+  const app = new Application()
+
+
   return (
     <AppContainer direction={"column"} flexWrap={"nowrap"} container>
+      <LandingBackground />
       <Grid2>
         <Nav>
-          {/*<Grid2 xs={2}>*/}
             <NavImageBigger src={logo}  alt={"Hackathon Logo"}/>
-          {/*</Grid2>*/}
-          {/*<Grid2 flexGrow />*/}
-          {/*<Grid2 xs={2}>*/}
             <NavImage src={name}  alt={"Hackathon ATL"}/>
-          {/*</Grid2>*/}
         </Nav>
       </Grid2>
       <Grid2 flexGrow={1}>
@@ -28,7 +30,7 @@ function App() {
 
             <Grid2 container>
               <Grid2 xs={6} display={"flex"} alignItems={"center"}>
-                <MainImage src={center}  alt={"Center NavImage"}/>
+                <MainImage src={center}  alt={"Center NavImage"} id={"center-image"}/>
               </Grid2>
               <Grid2 xs={6} container direction={"column"} justifyContent="space-between">
                 <MainButtons>
@@ -84,8 +86,11 @@ const AppContainer = styled(Grid2)`
   height: 100vh;
   background: rgb(60,61,66);
   background: radial-gradient(circle at top, rgba(60,61,66,1) 0%, rgba(26,26,31,1) 100%);
+  position: absolute;
   
-  //font-size: 1vh;
+  & > div {
+    z-index: 10;
+  }
 `
 const Nav = styled.div`
   display: flex;
@@ -107,11 +112,9 @@ const MainImage = styled.img`
   max-height: 20rem;
   display: block;
   margin-left: auto;
+  margin-right: 10rem;
   cursor: pointer;
-  
-  &:hover {
-    animation: MoveUpDown 1.5s ease-in-out infinite;
-  }
+  animation: MoveUpDown 1.5s ease-in-out infinite;
 
   @keyframes MoveUpDown {
     0%, 100% {
