@@ -47,7 +47,7 @@ export default function LandingBackground() {
       console.log(posX, posY)
     }
 
-    window.onresize = () => {
+    function resize() {
       console.log("resize")
       if (!content) return
       // app.stage.addChild(arc).lineStyle(15, 0xffffff)
@@ -56,8 +56,7 @@ export default function LandingBackground() {
         // .arcTo(content.offsetLeft + content.offsetWidth, content.offsetTop, content.offsetLeft + content.offsetWidth, content.offsetTop + content.offsetHeight, 100)
         .arc(content.offsetLeft + content.offsetWidth / 2, content.offsetTop + content.offsetHeight / 2, content.offsetWidth/2 + radiusOffset, -Math.PI/4, Math.PI/4)
     }
-
-    window.onmousemove = (e) => {
+    function mouseMove(e: { clientY: number; }) {
       if (!content) return
 
       const result = Math.asin((e.clientY-(content.offsetTop + content.offsetHeight / 2))/content.offsetWidth)
@@ -69,12 +68,18 @@ export default function LandingBackground() {
       cursorCircle.rotation = deg;
     }
 
+    window.addEventListener('resize', resize)
+
+    window.addEventListener('mousemove', mouseMove)
+
     app.stage.addChild(arc, cursorCircle)
 
 
     return () => {
     // x.destroy();
       app.destroy(true, false)
+      window.removeEventListener('resize', resize)
+      window.removeEventListener('mousemove', mouseMove)
 
     }
 

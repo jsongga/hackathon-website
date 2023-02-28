@@ -31,10 +31,16 @@ function Main() {
           </Link>
         </Nav>
       </Grid2>
-      <SocialMedia>
-        <FaInstagram />
-        <FaDiscord />
-      </SocialMedia>
+      <SocialMediaContainer>
+        <SocialMedia>
+          <FaInstagram />
+          <SocialMediaLabel>Instagram</SocialMediaLabel>
+        </SocialMedia>
+        <SocialMedia>
+          <FaDiscord />
+          <SocialMediaLabel>Discord</SocialMediaLabel>
+        </SocialMedia>
+      </SocialMediaContainer>
     </AppContainer>
   );
 }
@@ -81,7 +87,17 @@ const NavImageBigger = styled.img`
 const NavImage = styled.img`
   height: 1.1rem;
   cursor: pointer;
-  animation: glitch-effect 2s infinite linear alternate-reverse;
+  -webkit-mask: linear-gradient(-60deg, #000 30%, #0005, #000 70%) right/300% 100%;
+  
+  &:hover {
+    animation: shimmer 2s infinite linear;
+  }
+
+  @keyframes shimmer {
+    100% {
+      -webkit-mask-position: left
+    }
+  }
 
   //.img::before {
   //  left: -6px;
@@ -99,7 +115,7 @@ const NavImage = styled.img`
 
 
 
-const SocialMedia = styled.div`
+const SocialMediaContainer = styled.div`
   position: absolute;
   bottom: 3rem;
   left: 3rem;
@@ -112,6 +128,30 @@ const SocialMedia = styled.div`
     padding: 0.5rem;
     cursor: pointer;
   }
+`
+
+const SocialMedia = styled.div`
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  & > p {
+    opacity: 0;
+    transform: translateX(-20%);
+    transition: 0.5s ease;
+  }
+  &:hover > p {
+    opacity: 1;
+    transform: translateX(0);
+  }
+`
+
+const SocialMediaLabel = styled.p`
+  font-size: 0.5em;
+  padding: 3px;
+  border-radius: 2px;
+  margin-left: 1em;
+  background: rgba(255, 255, 255, 0.24);
 `
 
 const OutletContainer = styled(Grid2)`
