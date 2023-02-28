@@ -45,7 +45,7 @@ export default function Landing() {
             <Grid2 xs={12} md={6} display={"flex"} alignItems={"center"}>
               <MainImage src={center}  alt={"Center NavImage"} id={"center-image"}/>
             </Grid2>
-            <Grid2 xs={12} md={6} container direction={"column"} justifyContent="space-between">
+            <ButtonsContainer xs={12} md={6} container direction={"column"} justifyContent="space-between">
               <Link to={"/signup"}>
                 <MainButtons>
                   <HiOutlineClipboardDocumentCheck />
@@ -70,7 +70,7 @@ export default function Landing() {
                   Organizers
                 </MainButtons>
               </Link>
-            </Grid2>
+            </ButtonsContainer>
           </Grid2>
         </MainContent>
 
@@ -136,6 +136,12 @@ const BottomContent = styled.div`
 const BottomText = styled.h1`
   color: white;
   text-align: center;
+  cursor: pointer;
+  transition: 0.2s ease;
+
+  &:hover {
+    transform: scale(110%);
+  }
 `
 
 
@@ -151,6 +157,10 @@ const MainButtons = styled.div`
   display: flex;
   align-items: center;
   gap: 1em;
+
+  :nth-child(2) {
+    animation-delay: 1s;
+  }
   
   &:hover {
     border-color: #90EECF;
@@ -169,6 +179,28 @@ const MainButtons = styled.div`
     border: 2px solid #90EECF;
 
   }
+
+  
+`
+
+const ButtonsContainer = styled(Grid2)`
+  
+  
+  & > * {
+    animation: fadein 1s normal forwards;
+    opacity: 0;
+    transform: translateX(20%);
+  }
+  & :nth-child(2) {animation-delay: 0.1s}
+  & :nth-child(3) {animation-delay: 0.2s}
+  & :nth-child(4) {animation-delay: 0.3s}
+  
+  @keyframes fadein {
+    100%   {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
 `
 
 const StaticImage = styled.img`
@@ -176,4 +208,10 @@ const StaticImage = styled.img`
   width: 0.8rem;
   bottom: 3rem;
   right: 3rem;
+  transition: 0.2s ease;
+  
+  &:hover {
+    transform: scale(110%);
+    cursor: pointer;
+  }
 `

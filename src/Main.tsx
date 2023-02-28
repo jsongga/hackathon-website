@@ -66,10 +66,35 @@ const Nav = styled.div`
 const NavImageBigger = styled.img`
   height: 2.8rem;
   cursor: pointer;
+  
+  &:hover {
+    animation: rotate 2s ease infinite ;
+  }
+  
+  @keyframes rotate {
+    from {transform: rotate(0deg);}
+    to {
+      transform: rotate(360deg) scale(120%);
+    }
+  }
 `
 const NavImage = styled.img`
   height: 1.1rem;
   cursor: pointer;
+  animation: glitch-effect 2s infinite linear alternate-reverse;
+
+  //.img::before {
+  //  left: -6px;
+  //  animation: glitch-effect 2s infinite linear alternate-reverse;
+  //  background-image: url(https://rawcdn.githack.com/Kerthin/links/247cc9065bac7d5c23b45ff677bf1d2bceeb4324/img/glitch/imgTV/vanille.png);
+  //  filter: grayscale(100%) sepia(100%) saturate(250%) hue-rotate(120deg) brightness(121%) contrast(121%);
+  //}
+  //.img::after {
+  //  left: 6px;
+  //  animation: glitch-effect 3s infinite linear alternate-reverse;
+  //  background-image: url(https://rawcdn.githack.com/Kerthin/links/247cc9065bac7d5c23b45ff677bf1d2bceeb4324/img/glitch/imgTV/vanille.png);
+  //  filter: grayscale(100%) sepia(100%) saturate(250%) hue-rotate(240deg) brightness(121%) contrast(121%);
+  //}
 `
 
 
