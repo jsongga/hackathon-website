@@ -6,10 +6,11 @@ import {FaHandshake, FaQuestion, FaScroll} from "react-icons/fa";
 import styled from "styled-components";
 import {Container} from "@mui/material";
 import staticImage from "../static.png";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import LandingBackground from "../LandingBackground";
 
 export default function Landing() {
+  const navigate = useNavigate();
 
   useEffect(() => {
     function generateRandomString() {
@@ -34,73 +35,78 @@ export default function Landing() {
     }
   })
 
-  return <LandingContainer direction={"column"} flexWrap={"nowrap"} container>
+  return <LandingContainer >
     <LandingBackground />
     <StaticImage src={staticImage} />
-    <Grid2 flexGrow={1}>
+    {/*<Grid2 flexGrow={1}>*/}
       <MainContentInner>
-        <MainContent maxWidth="md">
+        {/*<MainContent maxWidth="md">*/}
 
-          <Grid2 container>
-            <Grid2 xs={12} md={6} display={"flex"} alignItems={"center"}>
+          <Content container>
+            <Grid2 xs={12} md={6} display={"flex"} alignItems={"center"} justifyContent={"center"}>
               <MainImage src={center}  alt={"Center NavImage"} id={"center-image"}/>
             </Grid2>
-            <ButtonsContainer xs={12} md={6} container direction={"column"} justifyContent="space-between">
-              <Link to={"/signup"}>
-                <MainButtons>
+            <ButtonsContainer xs={12} md={6} container direction={"column"} justifyContent="space-between" id={"button-container"}>
+              {/*<StyledLink to={"/signup"}>*/}
+                <MainButtons onClick={() => navigate('/signup')}>
                   <HiOutlineClipboardDocumentCheck />
                   Register
                 </MainButtons>
-              </Link>
-              <Link to={"/rules"}>
-                <MainButtons style={{marginLeft: "2em"}}>
+              {/*</StyledLink>*/}
+              {/*<StyledLink to={"/rules"}>*/}
+                <MainButtons onClick={() => navigate('/rules')} style={{marginLeft: "2em"}}>
                   <FaScroll />
                   Rules
                 </MainButtons>
-              </Link>
-              <Link to={"/faq"}>
-                <MainButtons style={{marginLeft: "2em"}}>
+              {/*</StyledLink>*/}
+              {/*<StyledLink to={"/faq"}>*/}
+                <MainButtons onClick={() => navigate('/faq')} style={{marginLeft: "2em"}}>
                   <FaQuestion />
                   FAQ
                 </MainButtons>
-              </Link>
-              <Link to={"/organizers"}>
-                <MainButtons>
+              {/*</StyledLink>*/}
+              {/*<StyledLink to={"/organizers"}>*/}
+              <MainButtons onClick={() => navigate('/organizers')}>
                   <FaHandshake />
                   Organizers
                 </MainButtons>
-              </Link>
+              {/*</StyledLink>*/}
             </ButtonsContainer>
-          </Grid2>
-        </MainContent>
+            <Grid2 xs={12}>
+              <BottomContent>
+                <BottomText id={"theme"}>Our Theme: Cybersecurity</BottomText>
+                <BottomText>April 22-23, 2023</BottomText>
+              </BottomContent>
+            </Grid2>
+          </Content>
+        {/*</MainContent>*/}
 
       </MainContentInner>
-    </Grid2>
+    {/*</Grid2>*/}
 
-    <Grid2 flexGrow={0}>
+    {/*<Grid2 flexGrow={0}>*/}
 
-      <BottomContent>
-        <BottomText id={"theme"}>Our Theme: Cybersecurity</BottomText>
-        <BottomText>April 22-23, 2023</BottomText>
-      </BottomContent>
 
-    </Grid2>
+
+    {/*</Grid2>*/}
   </LandingContainer>
 }
 
-const LandingContainer = styled(Grid2)`
+const LandingContainer = styled.div`
+  
   height: 100%;
+  width: 100%;
+`
+
+const StyledLink = styled(Link)`
+  display: contents;
 `
 
 const MainImage = styled.img`
-  width: 80%;
-  max-width: 50vw;
-  //max-height: 20rem;
-  //aspect-ratio: 1/1;
-  //display: block;
-  margin: 0 20% 0 0%;
-  //margin-left: auto;
-  //margin-right: 10rem;
+  
+  max-height: 40vh;
+  max-width: 100%;
+
   cursor: pointer;
   animation: MoveUpDown 2s ease-in-out infinite;
 
@@ -114,17 +120,29 @@ const MainImage = styled.img`
   }
 `
 
+const Content = styled(Grid2)`
+  position: relative;
+  //bottom: 5vh;
+  //left: 50%;
+  //top: 50%;
+  //transform: translate(-50%, -50%);
+  //padding-top: 10rem;
+`
+
 const MainContent = styled(Container)`
-  height: auto;
+  position: absolute;
+  bottom: 5vh;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 `
 const MainContentInner = styled.div`
-  height: 100%;
   display: flex;
   flex-direction: column;
-  margin-top: 14rem;
-  //justify-content: space-around ;
+  margin-top: 15rem;
+  height: calc(100% - 15rem);
+  //justify-content: flex-end ;
   align-items: center;
-  
 `
 const BottomContent = styled.div`
   display: flex;
@@ -132,6 +150,10 @@ const BottomContent = styled.div`
   justify-content: space-evenly;
   //margin-bottom: 2rem;
   margin-top: 7rem;
+  position: relative;
+  //bottom: 5vh;
+  left: 50%;
+  transform: translate(-50%, 0);
 `
 const BottomText = styled.h1`
   color: white;
@@ -147,25 +169,23 @@ const BottomText = styled.h1`
 
 const MainButtons = styled.div`
   border: 2px solid #46474B;
-  font-size: 1.6rem;
+  font-size: 3vh;
   padding: 0.8rem;
-  margin: 1rem;
-  transition: 0.2s ease-in-out;
+  margin: 0.5em;
   color: white;
   cursor: pointer;
-  width: 16rem;
+  width: 10em;
   display: flex;
   align-items: center;
   gap: 1em;
-
-  :nth-child(2) {
-    animation-delay: 1s;
-  }
+  transition: transform 0.2s ease;
   
   &:hover {
     border-color: #90EECF;
     color: #90EECF;
-    transform: translateX(0.5rem);
+
+    //margin-left: 2em;
+    transform: translateX(5%);
   }
   
   & > svg {
@@ -179,28 +199,48 @@ const MainButtons = styled.div`
     border: 2px solid #90EECF;
 
   }
-
-  
+  //animation: fadein 1s normal forwards;
+  //
+  //@keyframes fadein {
+  //  0% {
+  //    transform: translateX(20%);
+  //  }
+  //  100%   {
+  //    opacity: 1;
+  //    transform: translateX(0);
+  //  }
+  //}
 `
 
 const ButtonsContainer = styled(Grid2)`
-  
+  //&::before > * {
+  //  opacity: 0;
+  //  transform: translateX(20%)
+  //}
   
   & > * {
-    animation: fadein 1s normal forwards;
-    opacity: 0;
-    transform: translateX(20%);
+    //opacity: 1;
+    //transform: translateX(0);
+    //animation: fadein 1s normal forwards;
+    //opacity: 0;
+    //display: flex;
+    //justify-content: center;
+    //@keyframes fadein {
+    //  0% {
+    //    opacity: 0;
+    //    transform: translateX(20%);
+    //  }
+    //  100%   {
+    //    opacity: 1;
+    //    transform: translateX(0);
+    //  }
+    //}
   }
   & :nth-child(2) {animation-delay: 0.1s}
   & :nth-child(3) {animation-delay: 0.2s}
   & :nth-child(4) {animation-delay: 0.3s}
   
-  @keyframes fadein {
-    100%   {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
+  
 `
 
 const StaticImage = styled.img`

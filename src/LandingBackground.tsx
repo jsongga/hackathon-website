@@ -19,10 +19,6 @@ export default function LandingBackground() {
 
     let arc = new Graphics()
 
-    // let cursorCircle = new Graphics()
-    //   .beginFill(0xFFFFFF)
-    //   .drawCircle(0, 0, 10)
-
     let cursorCircle = new Graphics()
       .beginFill(0xFFFFFF)
       .drawPolygon([0, -10, 0, 10, 20, 0])
@@ -34,41 +30,50 @@ export default function LandingBackground() {
       alignment: 1
     }
 
-    const radiusOffset = 75
+    const reposition = () => {
+      let content = document.getElementById("center-image")!
+      let container = document.getElementById("button-container")!.getBoundingClientRect()
 
-    const content = document.getElementById("center-image")
-    if (content) content.onload = () => {
-      arc.lineStyle(lineStyle)
-        // .arcTo(content.offsetLeft + content.offsetWidth, content.offsetTop, content.offsetLeft + content.offsetWidth, content.offsetTop + content.offsetHeight, 100)
-        .arc(content.offsetLeft + content.offsetWidth/2, content.offsetTop + content.offsetHeight/2, content.offsetWidth/2 + radiusOffset, -Math.PI/4, Math.PI/4)
+      const radiusOffset = 15
+      const xOffset = 20
+      const yOffset = window.innerHeight/4
 
-      const [posX, posY] = calculateCircleCoords(content.offsetLeft + content.offsetWidth/2, content.offsetTop + content.offsetHeight/2, content.offsetWidth/2 + radiusOffset, 0)
-      cursorCircle.position.set(posX, posY)
-      console.log(posX, posY)
-    }
+      const radius = container.height/2
+      const midX = container.left - radius + radiusOffset - xOffset
+      const midY = container.top + container.height/2
 
-    function resize() {
-      console.log("resize")
-      if (!content) return
-      // app.stage.addChild(arc).lineStyle(15, 0xffffff)
       arc.clear()
         .lineStyle(lineStyle)
-        // .arcTo(content.offsetLeft + content.offsetWidth, content.offsetTop, content.offsetLeft + content.offsetWidth, content.offsetTop + content.offsetHeight, 100)
-        .arc(content.offsetLeft + content.offsetWidth / 2, content.offsetTop + content.offsetHeight / 2, content.offsetWidth/2 + radiusOffset, -Math.PI/4, Math.PI/4)
-    }
-    function mouseMove(e: { clientY: number; }) {
-      if (!content) return
+        .arc(midX, midY, radius, -Math.PI/4, Math.PI/4)
 
-      const result = Math.asin((e.clientY-(content.offsetTop + content.offsetHeight / 2))/content.offsetWidth)
+      const [posX, posY] = calculateCircleCoords(midX, midY, radius, 0)
+      cursorCircle.position.set(posX, posY)
+    }
+
+    const mouseMove = (e: MouseEvent) => {
+      let container = document.getElementById("button-container")!.getBoundingClientRect()
+
+      const radiusOffset = 15
+      const xOffset = 20
+      const yOffset = window.innerHeight/4
+
+      const radius = container.height/2
+      const midX = container.left - radius + radiusOffset - xOffset
+      const midY = container.top + container.height/2
+
+      const result = Math.asin((e.clientY-(container.top + container.height / 2))/container.width)
 
       if (!result) return
       const deg = Math.min(Math.max(result, -Math.PI/4), Math.PI/4);
-      const [posX, posY] = calculateCircleCoords(content.offsetLeft + content.offsetWidth/2, content.offsetTop + content.offsetHeight/2, content.offsetWidth/2 + radiusOffset, deg)
+      const [posX, posY] = calculateCircleCoords(midX, midY, radius, deg)
       cursorCircle.position.set(posX, posY)
       cursorCircle.rotation = deg;
     }
 
-    window.addEventListener('resize', resize)
+    let content = document.getElementById("center-image")!
+    if (content) content.onload = reposition
+
+    window.addEventListener('resize', reposition)
 
     window.addEventListener('mousemove', mouseMove)
 
@@ -78,7 +83,7 @@ export default function LandingBackground() {
     return () => {
     // x.destroy();
       app.destroy(true, false)
-      window.removeEventListener('resize', resize)
+      window.removeEventListener('resize', reposition)
       window.removeEventListener('mousemove', mouseMove)
 
     }

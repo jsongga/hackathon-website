@@ -17,20 +17,21 @@ function Main() {
 
 
   return (
-    <AppContainer direction={"column"} flexWrap={"nowrap"} container>
-      <Grid2>
-        <OutletContainer flexGrow={1}>
+    <AppContainer direction={"column"} flexWrap={"nowrap"} container height={"100%"}>
+      {/*<Grid2>*/}
+      {/*  <OutletContainer flexGrow={1}>*/}
           <Outlet />
-        </OutletContainer>
-        <Nav>
-          <Link to={"/"}>
-            <NavImageBigger src={logo}  alt={"Hackathon Logo"}/>
-          </Link>
-          <Link to={"/"}>
+      {/*  </OutletContainer>*/}
+
+      {/*</Grid2>*/}
+      <Nav>
+        <Link to={"/"}>
+          <NavImageBigger src={logo}  alt={"Hackathon Logo"}/>
+        </Link>
+        <Link to={"/"}>
           <NavImage src={name}  alt={"Hackathon ATL"}/>
-          </Link>
-        </Nav>
-      </Grid2>
+        </Link>
+      </Nav>
       <SocialMediaContainer>
         <SocialMedia>
           <FaInstagram />
@@ -49,6 +50,7 @@ export default Main;
 
 const AppContainer = styled(Grid2)`
   width: 100vw;
+  height: unset !important;
   min-height: 100vh;
   background: rgb(60,61,66);
   background: radial-gradient(circle at top, rgba(60,61,66,1) 0%, rgba(26,26,31,1) 50%);
