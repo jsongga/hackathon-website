@@ -39,7 +39,7 @@ export default function Organizers() {
         <ProfileP>Organizer's Role</ProfileP>
       </ProfileContainer>
       <ProfileContainer>
-        <ProfileImage src="https://cdn.discordapp.com/avatars/739481322900291636/b45a00835df9899314ff3c64e6564729?size=1024" />
+        <ProfileImage src="https://media.discordapp.net/attachments/1012550180719054932/1083112500637208576/black-bg-logo.jpg" />
         <ProfileH1>Organizer</ProfileH1>
         <ProfileP>Organizer's Role</ProfileP>
       </ProfileContainer>
@@ -70,7 +70,7 @@ const Heading = styled.h1`
   top: 7%;
   right: 50%;
   transform: translate(50%, -50%);
-  font-size: 5em;
+  font-size: 2vw;
 `
 
 const ProfileGrid1 = styled.div`
