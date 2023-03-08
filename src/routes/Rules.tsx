@@ -1,13 +1,57 @@
 import styled from "styled-components";
+import {Container} from "@mui/material";
+
+const rules = `
+1. Teams can have a maximum of 4 people
+2. Online Resources are allowed
+3. Help from people within this hackathon is allowed only
+4. Projects should be original
+5. You must be in High School to attend
+6. Teams must stop coding once time is up
+`
 
 export default function Rules() {
 
-  return <FillerText>Rules</FillerText>
+  return <PageContainer fixed>
+    <MainText>Hackathon Rules</MainText>
+    {rules.split("\n").map((line, index) => line.length > 0 && <RuleContainer style={{animationDelay: (index*100) + "ms"}}>{line}</RuleContainer>)}
+  </PageContainer>
 }
 
-const FillerText = styled.h1`
+const PageContainer = styled(Container)`
+  margin-top: 15em;
   color: white;
+`
+
+const MainText = styled.h1`
   text-align: center;
-  position: absolute;
-  top: 25%;
+  font-size: 4em;
+`
+
+const RuleContainer = styled.div`
+  border-radius: 0.5em;
+  background-color: rgba(255, 255, 255, 0.15);
+  font-size: 3em;
+  padding: 0.5em 1em;
+  margin: 0.4em 0;
+  transition: 0.5s ease-out;
+  
+  cursor: pointer;
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+    margin-left: 1em;
+
+  }
+
+  animation: fadein 1s normal forwards;
+  opacity: 0;
+  transform: translateX(1em);
+
+
+  @keyframes fadein {
+    100%   {
+      opacity: 1;
+      transform: translateX(0%)
+    }
+  }
 `

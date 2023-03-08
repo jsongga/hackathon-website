@@ -48,29 +48,30 @@ export default function Landing() {
             </Grid2>
             <ButtonsContainer xs={12} md={6} container direction={"column"} justifyContent="space-between" id={"button-container"}>
               {/*<StyledLink to={"/signup"}>*/}
+              <IntroAnimation>
                 <MainButtons onClick={() => navigate('/signup')}>
                   <HiOutlineClipboardDocumentCheck />
                   Register
                 </MainButtons>
-              {/*</StyledLink>*/}
-              {/*<StyledLink to={"/rules"}>*/}
+              </IntroAnimation>
+              <IntroAnimation>
                 <MainButtons onClick={() => navigate('/rules')} style={{marginLeft: "2em"}}>
-                  <FaScroll />
-                  Rules
-                </MainButtons>
-              {/*</StyledLink>*/}
-              {/*<StyledLink to={"/faq"}>*/}
+                    <FaScroll />
+                    Rules
+                  </MainButtons>
+              </IntroAnimation>
+              <IntroAnimation>
                 <MainButtons onClick={() => navigate('/faq')} style={{marginLeft: "2em"}}>
                   <FaQuestion />
                   FAQ
                 </MainButtons>
-              {/*</StyledLink>*/}
-              {/*<StyledLink to={"/organizers"}>*/}
-              <MainButtons onClick={() => navigate('/organizers')}>
-                  <FaHandshake />
-                  Organizers
-                </MainButtons>
-              {/*</StyledLink>*/}
+              </IntroAnimation>
+              <IntroAnimation>
+                <MainButtons onClick={() => navigate('/organizers')}>
+                    <FaHandshake />
+                    Organizers
+                  </MainButtons>
+              </IntroAnimation>
             </ButtonsContainer>
             <Grid2 xs={12}>
               <BottomContent>
@@ -166,7 +167,18 @@ const BottomText = styled.h1`
   }
 `
 
-
+const IntroAnimation = styled.div`
+  animation: fadein 1s normal forwards;
+  opacity: 0;
+  transform: translateX(20%);
+  
+  @keyframes fadein {
+    100%   {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+`
 const MainButtons = styled.div`
   border: 2px solid #46474B;
   font-size: 3vh;
@@ -185,7 +197,7 @@ const MainButtons = styled.div`
     color: #90EECF;
 
     //margin-left: 2em;
-    transform: translateX(5%);
+    transform: translateX(0.3em);
   }
   
   & > svg {
@@ -199,17 +211,7 @@ const MainButtons = styled.div`
     border: 2px solid #90EECF;
 
   }
-  //animation: fadein 1s normal forwards;
-  //
-  //@keyframes fadein {
-  //  0% {
-  //    transform: translateX(20%);
-  //  }
-  //  100%   {
-  //    opacity: 1;
-  //    transform: translateX(0);
-  //  }
-  //}
+  
 `
 
 const ButtonsContainer = styled(Grid2)`
