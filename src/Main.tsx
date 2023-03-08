@@ -50,13 +50,13 @@ export default Main;
 
 const AppContainer = styled(Grid2)`
   width: 100vw;
-  height: unset !important;
+  // height: unset !important;
   min-height: 100vh;
   background: rgb(60,61,66);
   background: radial-gradient(circle at top, rgba(60,61,66,1) 0%, rgba(26,26,31,1) 50%);
   position: absolute;
   z-index: -2;
-  
+  overflow: hidden;
   & > div {
     z-index: 0;
   }
@@ -65,18 +65,20 @@ const Nav = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 3rem;
+  margin: 3%;
   position: absolute;
-  width: calc(100% - 6rem);
-  //z-index: 10;
+  width: 94%;
+  // z-index: 10;
   top: 0;
 `
 const NavImageBigger = styled.img`
-  height: 2.8rem;
+  height: 5vh;
   cursor: pointer;
+  transition: 0.5s ease-in-out;
   
   &:hover {
-    animation: rotate 2s ease infinite ;
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 0.4vmin #fff);
   }
   
   @keyframes rotate {
@@ -87,7 +89,7 @@ const NavImageBigger = styled.img`
   }
 `
 const NavImage = styled.img`
-  height: 1.1rem;
+  height: 2.5vh;
   cursor: pointer;
   -webkit-mask: linear-gradient(-60deg, #000 30%, #0005, #000 70%) right/300% 100%;
   
@@ -119,17 +121,18 @@ const NavImage = styled.img`
 
 const SocialMediaContainer = styled.div`
   position: absolute;
-  bottom: 3rem;
-  left: 3rem;
+  bottom: 5%;
+  left: 3%;
   color: white;
   display: flex;
   flex-direction: column;
-  font-size: 2rem;
+  font-size: 2vw;
   
-  & > svg{
-    padding: 0.5rem;
+  & > svg {
+    padding: 0.5vh;
     cursor: pointer;
   }
+
 `
 
 const SocialMedia = styled.div`
@@ -146,13 +149,21 @@ const SocialMedia = styled.div`
     opacity: 1;
     transform: translateX(0);
   }
+  
+  transition: 0.5s ease-in-out;
+  
+  &:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 0.4vmin #fff);
+  }
+  
 `
 
 const SocialMediaLabel = styled.p`
-  font-size: 0.5em;
+  font-size: 1vw;
   padding: 3px;
   border-radius: 2px;
-  margin-left: 1em;
+  margin-left: 1vw;
   background: rgba(255, 255, 255, 0.24);
 `
 

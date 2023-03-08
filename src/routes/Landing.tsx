@@ -16,8 +16,8 @@ export default function Landing() {
     function generateRandomString() {
       let string = ""
 
-      for (let i=0; i<10; i++) {
-        string += String.fromCharCode(0x30A0 + Math.random() * (0x30FF - 0x30A0 + 1));
+      for (let i=0; i<20; i++) {
+        string += String.fromCharCode(0x0030 + Math.random() * (0x007A -   0x0030 + 1));
       }
 
       return string;
@@ -55,13 +55,13 @@ export default function Landing() {
                 </MainButtons>
               </IntroAnimation>
               <IntroAnimation>
-                <MainButtons onClick={() => navigate('/rules')} style={{marginLeft: "2em"}}>
+                <MainButtons onClick={() => navigate('/rules')} style={{marginLeft: "3vw"}}>
                     <FaScroll />
                     Rules
                   </MainButtons>
               </IntroAnimation>
               <IntroAnimation>
-                <MainButtons onClick={() => navigate('/faq')} style={{marginLeft: "2em"}}>
+                <MainButtons onClick={() => navigate('/faq')} style={{marginLeft: "3vw"}}>
                   <FaQuestion />
                   FAQ
                 </MainButtons>
@@ -108,26 +108,29 @@ const MainImage = styled.img`
   max-height: 40vh;
   max-width: 100%;
 
-  cursor: pointer;
-  animation: MoveUpDown 2s ease-in-out infinite;
+  // cursor: pointer;
+  // animation: MoveUpDown 2s ease-in-out infinite;
 
-  @keyframes MoveUpDown {
-    0%, 100% {
-      transform: translateY(0%);
+  // @keyframes MoveUpDown {
+  //   0%, 100% {
+  //     transform: translateY(0%);
+  //   }
+  //   50% {
+  //     transform: translateY(-5%);
+  //   }
+  // }
+
+  animation: pulse 5s ease-in-out infinite;
+
+  @keyframes pulse {
+    0% , 100% {
+      transform: scale(1);
+      filter: drop-shadow(0 0 0 #fff);
     }
     50% {
-      transform: translateY(-5%);
+      transform: scale(1.05);
+      filter: drop-shadow(0 0 1vmin #fff);
     }
-  }
-`
-
-const Content = styled(Grid2)`
-  position: relative;
-  //bottom: 5vh;
-  //left: 50%;
-  //top: 50%;
-  //transform: translate(-50%, -50%);
-  //padding-top: 10rem;
 `
 
 const MainContent = styled(Container)`
@@ -140,17 +143,26 @@ const MainContent = styled(Container)`
 const MainContentInner = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 15rem;
-  height: calc(100% - 15rem);
-  //justify-content: flex-end ;
+  margin-top: 25vh;
+  height: 40vh;
+  //justify-content: flex-end;
   align-items: center;
+`
+const Content = styled(Grid2)`
+  position: absolute;
+  //bottom: 5vh;
+  //left: 50%;
+  //top: 50%;
+  //transform: translate(-50%, -50%);
+  //padding-top: 10vh;
 `
 const BottomContent = styled.div`
   display: flex;
   flex-direction: column;
+  height: 10vh;
   justify-content: space-evenly;
-  //margin-bottom: 2rem;
-  margin-top: 7rem;
+  //margin-bottom: 2vh;
+  margin-top: 10vh;
   position: relative;
   //bottom: 5vh;
   left: 50%;
@@ -182,14 +194,14 @@ const IntroAnimation = styled.div`
 const MainButtons = styled.div`
   border: 2px solid #46474B;
   font-size: 3vh;
-  padding: 0.8rem;
-  margin: 0.5em;
+  padding: 2vmin;
+  margin: 1.5vmin;
   color: white;
   cursor: pointer;
-  width: 10em;
+  width: 15vw;
   display: flex;
   align-items: center;
-  gap: 1em;
+  gap: 1vw;
   transition: transform 0.2s ease;
   
   &:hover {
@@ -197,14 +209,14 @@ const MainButtons = styled.div`
     color: #90EECF;
 
     //margin-left: 2em;
-    transform: translateX(0.3em);
+    transform: translateX(0.3vw);
   }
   
   & > svg {
     border: 2px solid white;
     border-radius: 50%;
-    font-size: 1em;
-    padding: 0.3em;
+    font-size: 2vh;
+    padding: 0.3vmax;
   }
   
   &:hover > svg {
@@ -247,9 +259,9 @@ const ButtonsContainer = styled(Grid2)`
 
 const StaticImage = styled.img`
   position: absolute;
-  width: 0.8rem;
-  bottom: 3rem;
-  right: 3rem;
+  width: 1.5vh;
+  bottom: 5vh;
+  right: 3vw;
   transition: 0.2s ease;
   
   &:hover {
