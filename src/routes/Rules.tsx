@@ -30,7 +30,7 @@ const MainText = styled.h1`
 
 const RuleContainer = styled.div`
   border-radius: 0.5em;
-  background-color: rgba(255, 255, 255, 0.15);
+  background-color: rgba(255, 255, 255, 0.05);
   font-size: 3em;
   padding: 0.5em 1em;
   margin: 0.4em 0;
@@ -38,8 +38,9 @@ const RuleContainer = styled.div`
   
   cursor: pointer;
   &:hover {
-    background-color: rgba(255, 255, 255, 0.25);
-    margin-left: 1em;
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 0.75vmin white);
 
   }
 

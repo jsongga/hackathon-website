@@ -8,19 +8,14 @@ export default function Organizers() {
     <ProfileTopGrid>
       <ProfileGrid1>
         <ProfileContainer>
-          <ProfileImage src="https://cdn.discordapp.com/avatars/485587362534129676/7ae7e229320e0d183de288ecd688d289?size=1024" />
-          <ProfileH1>Sasanka Polisetti</ProfileH1>
-          <ProfileP>Organizer's Role</ProfileP>
-        </ProfileContainer>
-        <ProfileContainer>
-          <ProfileImage src="https://cdn.discordapp.com/avatars/510999904986988544/a56fd1c80a96ea628798787c7b51306e?size=1024" />
-          <ProfileH1>Steven Chae</ProfileH1>
-          <ProfileP>greatest coolest person</ProfileP>
+          <ProfileImage src="https://cdn.discordapp.com/avatars/309850219581931521/9d8843b79afac392243c2761924b5e50?size=1024" />
+          <ProfileH1>John Song</ProfileH1>
+          <ProfileP>Lead Coordinator</ProfileP>
         </ProfileContainer>
         <ProfileContainer>
           <ProfileImage src="https://cdn.discordapp.com/avatars/513422459534442516/0b6dfd42a00e947b97eadd1acfbb3a0e?size=1024" />
           <ProfileH1>Austin Song</ProfileH1>
-          <ProfileP>Organizer's Role</ProfileP>
+          <ProfileP>Lead Coordinator</ProfileP>
         </ProfileContainer>
         <ProfileContainer>
           <ProfileImage src="https://cdn.discordapp.com/avatars/306210796772261899/c704647b613296aa2cadf0117c75f3c3?size=1024" />
@@ -28,8 +23,13 @@ export default function Organizers() {
           <ProfileP>Organizer's Role</ProfileP>
         </ProfileContainer>
         <ProfileContainer>
-          <ProfileImage src="https://cdn.discordapp.com/avatars/564655151906947095/a_4863af8e782c3e87ab916fc4bc8e4ab1?size=1024" />
-          <ProfileH1>Clara</ProfileH1>
+          <ProfileImage src="https://cdn.discordapp.com/avatars/485587362534129676/7ae7e229320e0d183de288ecd688d289?size=1024" />
+          <ProfileH1>Sasanka Polisetti</ProfileH1>
+          <ProfileP>Event + Budget</ProfileP>
+        </ProfileContainer>
+        <ProfileContainer>
+          <ProfileImage src="https://cdn.discordapp.com/avatars/449764032711360533/a_5dedf5954ccd068f04a080944f41d8a3?size=1024" />
+          <ProfileH1>Tillman Won</ProfileH1>
           <ProfileP>Organizer's Role</ProfileP>
         </ProfileContainer>
       </ProfileGrid1>
@@ -45,13 +45,13 @@ export default function Organizers() {
           <ProfileP>Organizer's Role</ProfileP>
         </ProfileContainer>
         <ProfileContainer>
-          <ProfileImage src="https://cdn.discordapp.com/avatars/309850219581931521/9d8843b79afac392243c2761924b5e50?size=1024" />
-          <ProfileH1>John Song</ProfileH1>
-          <ProfileP>Organizer's Role</ProfileP>
+          <ProfileImage src="https://cdn.discordapp.com/avatars/510999904986988544/a56fd1c80a96ea628798787c7b51306e?size=1024" />
+          <ProfileH1>Steven Chae</ProfileH1>
+          <ProfileP>Website Coordinator</ProfileP>
         </ProfileContainer>
         <ProfileContainer>
-          <ProfileImage src="https://cdn.discordapp.com/avatars/449764032711360533/a_5dedf5954ccd068f04a080944f41d8a3?size=1024" />
-          <ProfileH1>Tillman Won</ProfileH1>
+          <ProfileImage src="https://cdn.discordapp.com/avatars/564655151906947095/a_4863af8e782c3e87ab916fc4bc8e4ab1?size=1024" />
+          <ProfileH1>Clara</ProfileH1>
           <ProfileP>Organizer's Role</ProfileP>
         </ProfileContainer>
       </ProfileGrid2>
