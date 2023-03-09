@@ -41,7 +41,6 @@ export default function Landing() {
     {/*<Grid2 flexGrow={1}>*/}
       <MainContentInner>
         {/*<MainContent maxWidth="md">*/}
-
           <Content container>
             <Grid2 xs={12} md={6} display={"flex"} alignItems={"center"} justifyContent={"center"}>
               <MainImage src={center}  alt={"Center NavImage"} id={"center-image"}/>
@@ -81,7 +80,6 @@ export default function Landing() {
             </Grid2>
           </Content>
         {/*</MainContent>*/}
-
       </MainContentInner>
     {/*</Grid2>*/}
 

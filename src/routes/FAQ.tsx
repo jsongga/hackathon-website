@@ -52,15 +52,12 @@ const QuestionContainer = styled.div`
   transition: 0.5s ease-out;
   cursor: pointer;
   
-  &:hover {
-    padding: 1em;
-    margin: 1em 0 1em 1em;
   }
   & > p {
-    display: none;
+    opacity: 0;
   }
   &:hover > p {
-    display: block;
+    display: 1;
   }
 `
 
