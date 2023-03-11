@@ -20,7 +20,7 @@ export default function Organizers() {
         <ProfileContainer>
           <ProfileImage src="https://cdn.discordapp.com/avatars/306210796772261899/c704647b613296aa2cadf0117c75f3c3?size=1024" />
           <ProfileH1>Benjamin Choo</ProfileH1>
-          <ProfileP>Organizer's Role</ProfileP>
+          <ProfileP>Organizer</ProfileP>
         </ProfileContainer>
         <ProfileContainer>
           <ProfileImage src="https://cdn.discordapp.com/avatars/485587362534129676/7ae7e229320e0d183de288ecd688d289?size=1024" />
@@ -35,25 +35,27 @@ export default function Organizers() {
       </ProfileGrid1>
       <ProfileGrid2>
         <ProfileContainer>
-          <ProfileImage src="https://cdn.discordapp.com/avatars/338868664596168704/f7776b8f2e6ff967982367814939c079?size=1024" />
+          <ProfileImage src="https://cdn.discordapp.com/avatars/338868664596168704/81c5f088b5ceb508e0b25087dbd04eed?size=1024" />
           <ProfileH1>Heet Shah</ProfileH1>
-          <ProfileP>Organizer's Role</ProfileP>
+          <ProfileP>Lead coordinator</ProfileP>
         </ProfileContainer>
         <ProfileContainer>
           <ProfileImage src="https://media.discordapp.net/attachments/1012550180719054932/1083112500637208576/black-bg-logo.jpg" />
           <ProfileH1>Lalitha</ProfileH1>
-          <ProfileP>Organizer's Role</ProfileP>
+          <ProfileP>Organizer</ProfileP>
         </ProfileContainer>
         <ProfileContainer>
           <ProfileImage src="https://cdn.discordapp.com/avatars/510999904986988544/a56fd1c80a96ea628798787c7b51306e?size=1024" />
           <ProfileH1>Steven Chae</ProfileH1>
           <ProfileP>Website Coordinator</ProfileP>
         </ProfileContainer>
-        <ProfileContainer>
+        {/* <ProfileContainer>
           <ProfileImage src="https://cdn.discordapp.com/avatars/564655151906947095/a_4863af8e782c3e87ab916fc4bc8e4ab1?size=1024" />
           <ProfileH1>Clara</ProfileH1>
           <ProfileP>Organizer's Role</ProfileP>
-        </ProfileContainer>
+        </ProfileContainer> 
+        BOOTED LOL
+        */}
       </ProfileGrid2>
     </ProfileTopGrid>
     </PageContainer>
@@ -63,7 +65,6 @@ const PageContainer = styled(Container)`
   margin-top: 0;
   color: white;
 `
-
 
 const Heading = styled.h1`
   color: white;
