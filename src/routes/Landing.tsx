@@ -9,9 +9,12 @@ import staticImage from "../static.png";
 import {Link, useNavigate} from "react-router-dom";
 import LandingBackground from "../LandingBackground";
 
+
+// TODO: use viewport width to determine if mobile or not
+// TODO: put the browser view back
+
 export default function Landing() {
   const navigate = useNavigate();
-
   useEffect(() => {
     function generateRandomString() {
       let string = ""
@@ -22,7 +25,7 @@ export default function Landing() {
 
       return string;
     }
-
+  
     const intervalId = window.setInterval(function(){
       let element = document.getElementById("theme")
       if (!element) return;
@@ -35,17 +38,25 @@ export default function Landing() {
     }
   })
 
-  return <LandingContainer >
-    <LandingBackground />
-    <StaticImage src={staticImage} />
+  // gets viewport width
+  const width = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+  // gets viewport height
+  const height = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+
+  // if viewport width less than viewport height, then mobile
+  const isMobile = width < height;
+  
+  if (isMobile) {
+    return <LandingContainer>
+    <LandingBackground/>
     {/*<Grid2 flexGrow={1}>*/}
       <MainContentInner>
         {/*<MainContent maxWidth="md">*/}
           <Content container>
             <Grid2 xs={12} md={6} display={"flex"} alignItems={"center"} justifyContent={"center"}>
-              <MainImage src={center}  alt={"Center NavImage"} id={"center-image"}/>
+              <MobileMainImage src={center}  alt={"Center NavImage"} id={"center-image"}/>
             </Grid2>
-            <ButtonsContainer xs={12} md={6} container direction={"column"} justifyContent="space-between" id={"button-container"}>
+            <MobileButtonsContainer xs={12} md={6} container direction={"column"} justifyContent="space-between" id={"button-container"}>
               {/*<StyledLink to={"/signup"}>*/}
               <IntroAnimation>
                 <MainButtons onClick={() => navigate('/signup')}>
@@ -54,13 +65,13 @@ export default function Landing() {
                 </MainButtons>
               </IntroAnimation>
               <IntroAnimation>
-                <MainButtons onClick={() => navigate('/rules')} style={{marginLeft: "3vw"}}>
+                <MainButtons onClick={() => navigate('/rules')}>
                     <FaScroll />
                     Rules
                   </MainButtons>
               </IntroAnimation>
               <IntroAnimation>
-                <MainButtons onClick={() => navigate('/faq')} style={{marginLeft: "3vw"}}>
+                <MainButtons onClick={() => navigate('/faq')}>
                   <FaQuestion />
                   FAQ
                 </MainButtons>
@@ -71,28 +82,80 @@ export default function Landing() {
                     Organizers
                   </MainButtons>
               </IntroAnimation>
-            </ButtonsContainer>
+            </MobileButtonsContainer>
             <Grid2 xs={12}>
-              <BottomContent>
+              <MobileBottomContent>
                 <BottomText id={"theme"}>Our Theme: Cybersecurity</BottomText>
                 <BottomText>April 22-23, 2023</BottomText>
-              </BottomContent>
+              </MobileBottomContent>
             </Grid2>
           </Content>
         {/*</MainContent>*/}
       </MainContentInner>
     {/*</Grid2>*/}
-
+  
     {/*<Grid2 flexGrow={0}>*/}
-
-
-
+  
     {/*</Grid2>*/}
+    <LandingBackground/>
   </LandingContainer>
+  }
+  else return <LandingContainer>
+  <LandingBackground/>
+  <StaticImage src={staticImage} />
+  {/*<Grid2 flexGrow={1}>*/}
+    <MainContentInner>
+      {/*<MainContent maxWidth="md">*/}
+        <Content container>
+          <Grid2 xs={12} md={6} display={"flex"} alignItems={"center"} justifyContent={"center"}>
+            <MainImage src={center}  alt={"Center NavImage"} id={"center-image"}/>
+          </Grid2>
+          <ButtonsContainer xs={12} md={6} container direction={"column"} justifyContent="space-between" id={"button-container"}>
+            {/*<StyledLink to={"/signup"}>*/}
+            <IntroAnimation>
+              <MainButtons onClick={() => navigate('/signup')}>
+                <HiOutlineClipboardDocumentCheck />
+                Register
+              </MainButtons>
+            </IntroAnimation>
+            <IntroAnimation>
+              <MainButtons onClick={() => navigate('/rules')} style={{marginLeft: "3vw"}}>
+                  <FaScroll />
+                  Rules
+                </MainButtons>
+            </IntroAnimation>
+            <IntroAnimation>
+              <MainButtons onClick={() => navigate('/faq')} style={{marginLeft: "3vw"}}>
+                <FaQuestion />
+                FAQ
+              </MainButtons>
+            </IntroAnimation>
+            <IntroAnimation>
+              <MainButtons onClick={() => navigate('/organizers')}>
+                  <FaHandshake />
+                  Organizers
+                </MainButtons>
+            </IntroAnimation>
+          </ButtonsContainer>
+          <Grid2 xs={12}>
+            <BottomContent>
+              <BottomText id={"theme"}>Our Theme: Cybersecurity</BottomText>
+              <BottomText>April 22-23, 2023</BottomText>
+            </BottomContent>
+          </Grid2>
+        </Content>
+      {/*</MainContent>*/}
+    </MainContentInner>
+  {/*</Grid2>*/}
+
+  {/*<Grid2 flexGrow={0}>*/}
+
+  {/*</Grid2>*/}
+  <LandingBackground/>
+</LandingContainer>
 }
 
 const LandingContainer = styled.div`
-  
   height: 100%;
   width: 100%;
 `
@@ -131,6 +194,37 @@ const MainImage = styled.img`
     }
 `
 
+const MobileMainImage = styled.img`
+  max-height: 40vh;
+  max-width: 100%;
+  position: absolute;
+  top: 0%;
+
+  // cursor: pointer;
+  // animation: MoveUpDown 2s ease-in-out infinite;
+
+  // @keyframes MoveUpDown {
+  //   0%, 100% {
+  //     transform: translateY(0%);
+  //   }
+  //   50% {
+  //     transform: translateY(-5%);
+  //   }
+  // }
+
+  animation: pulse 5s ease-in-out infinite;
+
+  @keyframes pulse {
+    0% , 100% {
+      transform: scale(1);
+      filter: drop-shadow(0 0 0 #fff) brightness(0.2);
+    }
+    50% {
+      transform: scale(1.05);
+      filter: drop-shadow(0 0 3vmin #fff) brightness(0.2);
+    }
+`
+
 const MainContent = styled(Container)`
   position: absolute;
   bottom: 5vh;
@@ -166,6 +260,20 @@ const BottomContent = styled.div`
   left: 50%;
   transform: translate(-50%, 0);
 `
+
+const MobileBottomContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 10vh;
+  justify-content: space-evenly;
+  //margin-bottom: 2vh;
+  margin-top: 10vh;
+  position: relative;
+  top: 200%;
+  left: 50%;
+  transform: translate(-50%, 0);
+`
+
 const BottomText = styled.h1`
   color: white;
   text-align: center;
@@ -196,7 +304,7 @@ const MainButtons = styled.div`
   margin: 1.5vmin;
   color: white;
   cursor: pointer;
-  width: 15vw;
+  min-width: 15vw;
   display: flex;
   align-items: center;
   gap: 1vw;
@@ -230,6 +338,39 @@ const ButtonsContainer = styled(Grid2)`
   //  transform: translateX(20%)
   //}
   
+  & > * {
+    //opacity: 1;
+    //transform: translateX(0);
+    //animation: fadein 1s normal forwards;
+    //opacity: 0;
+    //display: flex;
+    //justify-content: center;
+    //@keyframes fadein {
+    //  0% {
+    //    opacity: 0;
+    //    transform: translateX(20%);
+    //  }
+    //  100%   {
+    //    opacity: 1;
+    //    transform: translateX(0);
+    //  }
+    //}
+  }
+  & :nth-child(2) {animation-delay: 0.1s}
+  & :nth-child(3) {animation-delay: 0.2s}
+  & :nth-child(4) {animation-delay: 0.3s}
+  
+  
+`
+
+const MobileButtonsContainer = styled(Grid2)`
+  //&::before > * {
+  //  opacity: 0;
+  //  transform: translateX(20%)
+  //}
+  
+  position: absolute;
+  top: 60%;
   & > * {
     //opacity: 1;
     //transform: translateX(0);
