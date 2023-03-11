@@ -9,6 +9,7 @@ import Organizers from "./routes/Organizers";
 import FAQ from "./routes/FAQ";
 import Rules from "./routes/Rules";
 
+
 const router = createBrowserRouter([
   {
     path: "/",

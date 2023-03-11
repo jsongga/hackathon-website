@@ -12,10 +12,6 @@ import LandingBackground from "./LandingBackground";
 import {Link, Outlet} from "react-router-dom";
 
 function Main() {
-
-  const app = new Application()
-
-
   return (
     <AppContainer direction={"column"} flexWrap={"nowrap"} container height={"100%"}>
       {/*<Grid2>*/}

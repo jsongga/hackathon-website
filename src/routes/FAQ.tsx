@@ -4,12 +4,6 @@ import {Container} from "@mui/material";
 
 
 export default function FAQ() {
-
-  const [open, setOpen] = React.useState(true);
-  const handleClick = () => {
-    setOpen(!open);
-  };
-
   return <PageContainer>
     <Heading>FAQ</Heading>
     <QAGrid>
