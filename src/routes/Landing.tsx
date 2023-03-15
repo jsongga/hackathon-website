@@ -59,7 +59,7 @@ export default function Landing() {
             <MobileButtonsContainer xs={12} md={6} container direction={"column"} justifyContent="space-between" id={"button-container"}>
               {/*<StyledLink to={"/signup"}>*/}
               <IntroAnimation>
-                <MainButtons onClick={() => navigate('/signup')}>
+                <MainButtons onClick={() => window.open("https://docs.google.com/forms/d/e/1FAIpQLSeZmeQve0PAnBG-JsIachT_2m__OCs0OD-3PMjXqxnyhvBdlQ/viewform?usp=sf_link")}>
                   <HiOutlineClipboardDocumentCheck />
                   Register
                 </MainButtons>
@@ -87,6 +87,7 @@ export default function Landing() {
               <MobileBottomContent>
                 <BottomText id={"theme"}>Our Theme: Cybersecurity</BottomText>
                 <BottomText>April 22-23, 2023</BottomText>
+                <BottomDonationText onClick={() => window.open("https://bank.hackclub.com/donations/start/hackathon-atl")}>-&gt; Support Us (Donate) &lt;-</BottomDonationText>
               </MobileBottomContent>
             </Grid2>
           </Content>
@@ -113,7 +114,7 @@ export default function Landing() {
           <ButtonsContainer xs={12} md={6} container direction={"column"} justifyContent="space-between" id={"button-container"}>
             {/*<StyledLink to={"/signup"}>*/}
             <IntroAnimation>
-              <MainButtons onClick={() => navigate('/signup')}>
+              <MainButtons onClick={() => window.open("https://docs.google.com/forms/d/e/1FAIpQLSeZmeQve0PAnBG-JsIachT_2m__OCs0OD-3PMjXqxnyhvBdlQ/viewform?usp=sf_link")}>
                 <HiOutlineClipboardDocumentCheck />
                 Register
               </MainButtons>
@@ -141,6 +142,9 @@ export default function Landing() {
             <BottomContent>
               <BottomText id={"theme"}>Our Theme: Cybersecurity</BottomText>
               <BottomText>April 22-23, 2023</BottomText>
+              {/*<BottomDonationText onClick={() => window.open("https://bank.hackclub.com/donations/start/hackathon-atl")}>♥ Support Us (Donate) ♥</BottomDonationText>*/}
+
+              <BottomDonationText onClick={() => window.open("https://bank.hackclub.com/donations/start/hackathon-atl")}>-&gt; Support Us (Donate) &lt;-</BottomDonationText>
             </BottomContent>
           </Grid2>
         </Content>
@@ -282,6 +286,24 @@ const BottomText = styled.h1`
 
   &:hover {
     transform: scale(110%);
+  }
+`
+
+const BottomDonationText = styled(BottomText)`
+  color: #90EECF;
+  animation: pulse 2s ease-in-out infinite;
+  
+  &:hover {
+    animation: none;
+  }
+  
+  @keyframes pulse {
+    0% , 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
   }
 `
 

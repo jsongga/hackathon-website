@@ -29,11 +29,11 @@ function Main() {
         </Link>
       </Nav>
       <SocialMediaContainer>
-        <SocialMedia>
+        <SocialMedia onClick={() => window.open("https://www.instagram.com/hackathonatlanta/")}>
           <FaInstagram />
           <SocialMediaLabel>Instagram</SocialMediaLabel>
         </SocialMedia>
-        <SocialMedia>
+        <SocialMedia onClick={() => window.open("https://discord.gg/TRjzhjHc")}>
           <FaDiscord />
           <SocialMediaLabel>Discord</SocialMediaLabel>
         </SocialMedia>

@@ -22,7 +22,7 @@ export default function LandingBackground() {
 
   useEffect(() => {
     if (!canvas || isMobile) return;
-      const app = new Application({backgroundAlpha: 0, view: canvas, resolution: window.devicePixelRatio, resizeTo: window});
+      const app = new Application({backgroundAlpha: 0, view: canvas, antialias: true, resolution: window.devicePixelRatio, resizeTo: window});
 
       let arc = new Graphics()
 
