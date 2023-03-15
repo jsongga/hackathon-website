@@ -2,13 +2,8 @@ import React from 'react';
 import styled from "styled-components";
 import logo from "./uncolored.png";
 import name from "./logotext.png";
-import center from "./colored.png";
 import Grid2 from "@mui/material/Unstable_Grid2";
-import {AppBar, Box, Container, Toolbar} from "@mui/material";
-import {FaDiscord, FaHandshake, FaInstagram, FaQuestion, FaScroll} from "react-icons/fa";
-import {HiOutlineClipboardDocumentCheck} from "react-icons/hi2";
-import {Application} from "pixi.js";
-import LandingBackground from "./LandingBackground";
+import {FaDiscord, FaInstagram} from "react-icons/fa";
 import {Link, Outlet} from "react-router-dom";
 
 function Main() {
@@ -161,11 +156,4 @@ const SocialMediaLabel = styled.p`
   border-radius: 2px;
   margin-left: 1vw;
   background: rgba(255, 255, 255, 0.24);
-`
-
-const OutletContainer = styled(Grid2)`
-  display: flex;
-  //align-items: center;
-  justify-content: center;
-  height: 100%;
 `

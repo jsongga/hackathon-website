@@ -1,12 +1,11 @@
-import React, {Fragment, useEffect} from "react";
+import React, {useEffect} from "react";
 import Grid2 from "@mui/material/Unstable_Grid2";
 import center from "../colored.png";
 import {HiOutlineClipboardDocumentCheck} from "react-icons/hi2";
 import {FaHandshake, FaQuestion, FaScroll} from "react-icons/fa";
 import styled from "styled-components";
-import {Container} from "@mui/material";
 import staticImage from "../static.png";
-import {Link, useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import LandingBackground from "../LandingBackground";
 
 
@@ -45,7 +44,7 @@ export default function Landing() {
 
   // if viewport width less than viewport height, then mobile
   const isMobile = width < height;
-  
+
   if (isMobile) {
     return <LandingContainer>
     <LandingBackground/>
@@ -164,10 +163,6 @@ const LandingContainer = styled.div`
   width: 100%;
 `
 
-const StyledLink = styled(Link)`
-  display: contents;
-`
-
 const MainImage = styled.img`
   
   max-height: 40vh;
@@ -229,13 +224,6 @@ const MobileMainImage = styled.img`
     }
 `
 
-const MainContent = styled(Container)`
-  position: absolute;
-  bottom: 5vh;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-`
 const MainContentInner = styled.div`
   display: flex;
   flex-direction: column;

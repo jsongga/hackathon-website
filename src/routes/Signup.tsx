@@ -1,4 +1,3 @@
-import Grid2 from "@mui/material/Unstable_Grid2";
 import styled from "styled-components";
 
 export default function Signup() {
@@ -9,9 +8,6 @@ export default function Signup() {
 
   return <FillerText>Signup</FillerText>
 }
-
-const Container = styled(Grid2)`
-`
 
 const FillerText = styled.h1`
   color: white;
