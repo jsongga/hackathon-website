@@ -216,11 +216,11 @@ const MobileMainImage = styled.img`
   @keyframes pulse {
     0% , 100% {
       transform: scale(1);
-      filter: drop-shadow(0 0 0 #fff) brightness(0.2);
+      filter: drop-shadow(0 0 0 #fff) brightness(0.2) !important;
     }
     50% {
       transform: scale(1.05);
-      filter: drop-shadow(0 0 3vmin #fff) brightness(0.2);
+      filter: drop-shadow(0 0 3vmin #fff) brightness(0.2) !important;
     }
 `
 
