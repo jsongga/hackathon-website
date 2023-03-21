@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import styled from "styled-components";
 import logo from "./uncolored.png";
 import name from "./logotext.png";
@@ -7,6 +7,40 @@ import {FaDiscord, FaInstagram} from "react-icons/fa";
 import {Link, Outlet} from "react-router-dom";
 
 function Main() {
+
+    useEffect(() => {
+        // Pad strings with zeros to make them two digits
+        function pad(n: number) {
+            return n < 10 ? "0" + n : n;
+        }
+
+        // Returns the dd:hh:mm:ss until the date and time
+        function getTimeTillDate() {
+            const d = new Date("April 25 2023 10:00:00");
+            const now = new Date();
+            const diff = d.getTime() / 1000 - now.getTime() / 1000;
+            const days = Math.floor(diff / 86400);
+            const hours = Math.floor(diff % 86400 / 3600);
+            const minutes = Math.floor(diff % 86400 % 3600 / 60);
+            const seconds = Math.floor(diff % 86400 % 3600 % 60);
+            const val = pad(days) + ":" + pad(hours) + ":" + pad(minutes) + ":" + pad(seconds);
+
+            const element = document.getElementById("countdown");
+
+            if (!element) return;
+            element.innerText = val;
+        }
+
+        const intervalId = window.setInterval(function(){
+            getTimeTillDate();
+
+        }, 1000);
+
+        return () => {
+          clearInterval(intervalId)
+        }
+    }, [])
+
   return (
     <AppContainer direction={"column"} flexWrap={"nowrap"} container height={"100%"}>
       {/*<Grid2>*/}
@@ -16,12 +50,16 @@ function Main() {
 
       {/*</Grid2>*/}
       <Nav>
-        <Link to={"/"}>
+        <StyledLink to={"/"}>
           <NavImageBigger src={logo}  alt={"Hackathon Logo"}/>
-        </Link>
-        <Link to={"/"}>
+        </StyledLink>
+        <StyledLink to={"/"}>
           <NavImage src={name}  alt={"Hackathon ATL"}/>
-        </Link>
+            <InfoContainer>
+                <Info>April 25-27, 2023</Info>
+                <Info id={"countdown"}>10:39:33:28</Info>
+            </InfoContainer>
+        </StyledLink>
       </Nav>
       <SocialMediaContainer>
         <SocialMedia onClick={() => window.open("https://www.instagram.com/hackathonatlanta/")}>
@@ -55,10 +93,10 @@ const AppContainer = styled(Grid2)`
 const Nav = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin: 3%;
+  //align-items: center;
+  margin: max(3%, 30px);
   position: absolute;
-  width: 94%;
+  width: calc(100% - 2*max(3%, 30px));
   // z-index: 10;
   top: 0;
 `
@@ -83,6 +121,7 @@ const NavImage = styled.img`
   height: 2.5vh;
   cursor: pointer;
   -webkit-mask: linear-gradient(-60deg, #000 30%, #0005, #000 70%) right/300% 100%;
+  object-fit: scale-down;
   
   &:hover {
     animation: shimmer 2s infinite linear;
@@ -94,20 +133,29 @@ const NavImage = styled.img`
     }
   }
 
-  //.img::before {
-  //  left: -6px;
-  //  animation: glitch-effect 2s infinite linear alternate-reverse;
-  //  background-image: url(https://rawcdn.githack.com/Kerthin/links/247cc9065bac7d5c23b45ff677bf1d2bceeb4324/img/glitch/imgTV/vanille.png);
-  //  filter: grayscale(100%) sepia(100%) saturate(250%) hue-rotate(120deg) brightness(121%) contrast(121%);
-  //}
-  //.img::after {
-  //  left: 6px;
-  //  animation: glitch-effect 3s infinite linear alternate-reverse;
-  //  background-image: url(https://rawcdn.githack.com/Kerthin/links/247cc9065bac7d5c23b45ff677bf1d2bceeb4324/img/glitch/imgTV/vanille.png);
-  //  filter: grayscale(100%) sepia(100%) saturate(250%) hue-rotate(240deg) brightness(121%) contrast(121%);
-  //}
 `
 
+const StyledLink = styled(Link)`
+  display: flex;
+  flex-direction: column;
+  color: white;
+  font-size: 2em;
+  
+`
+
+const InfoContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  gap: 2em;
+`
+
+const Info = styled.p`
+  transition: 0.2s ease;
+
+  &:hover {
+    transform: scale(110%);
+  }
+`
 
 
 const SocialMediaContainer = styled.div`
@@ -117,10 +165,11 @@ const SocialMediaContainer = styled.div`
   color: white;
   display: flex;
   flex-direction: column;
-  font-size: 2vw;
+  font-size: max(2vw, 25px);
+  //gap: 1em;
   
   & > svg {
-    padding: 0.5vh;
+    //padding: 2em;
     cursor: pointer;
   }
 
@@ -151,7 +200,7 @@ const SocialMedia = styled.div`
 `
 
 const SocialMediaLabel = styled.p`
-  font-size: 1vw;
+  font-size: 0.5em;
   padding: 3px;
   border-radius: 2px;
   margin-left: 1vw;
