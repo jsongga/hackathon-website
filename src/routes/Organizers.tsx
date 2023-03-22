@@ -45,7 +45,7 @@ export default function Organizers() {
           <ProfileP>Organizer</ProfileP>
         </ProfileContainer>
         <ProfileContainer>
-          <ProfileImage src="https://cdn.discordapp.com/avatars/510999904986988544/a56fd1c80a96ea628798787c7b51306e?size=1024" />
+          <ProfileImage src="https://cdn.discordapp.com/avatars/510999904986988544/b7c153c49de1f6c98e5266ad584ed49d?size=1024" />
           <ProfileH1>Steven Chae</ProfileH1>
           <ProfileP>Website Coordinator</ProfileP>
         </ProfileContainer>

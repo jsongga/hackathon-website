@@ -80,7 +80,7 @@ export default function Landing() {
               <IntroAnimation>
                 <MainButtons onClick={() => navigate('/organizers')}>
                     <FaHandshake />
-                    Organizers
+                    Sponsors + Organizers
                   </MainButtons>
               </IntroAnimation>
               <IntroAnimation>
@@ -151,7 +151,7 @@ export default function Landing() {
             <IntroAnimation>
               <MainButtons onClick={() => navigate('/organizers')} style={{marginLeft: "4vw"}}>
                   <FaHandshake />
-                  Organizers
+                  Sponsors + Organizers
                 </MainButtons>
             </IntroAnimation>
             <IntroAnimation>
@@ -166,7 +166,6 @@ export default function Landing() {
               <BottomText>
                 <em>Hackathon Atlanta</em> is a <em>two-day</em> hackathon opened to all <em>High School Students.</em> This is an opportunity for
                 students all across our Atlanta to join together and collaborate on coding projects.
-
               </BottomText>
               {/*<BottomText id={"theme"}>Our Theme: l6D4kN)0gGx7&hZ^KiIn</BottomText>*/}
               {/*<BottomText style={{fontWeight: "bolder"}}>April 22-23, 2023</BottomText>*/}
@@ -247,11 +246,11 @@ const MobileMainImage = styled.img`
   @keyframes pulse {
     0% , 100% {
       transform: scale(1);
-      filter: drop-shadow(0 0 0 #fff) brightness(0.2) !important;
+      filter: drop-shadow(0 0 0 #fff) brightness(0.2);
     }
     50% {
       transform: scale(1.05);
-      filter: drop-shadow(0 0 3vmin #fff) brightness(0.2) !important;
+      filter: drop-shadow(0 0 3vmin #fff) brightness(0.2);
     }
 `
 
@@ -298,7 +297,8 @@ const MobileBottomContent = styled.div`
   position: relative;
   top: 200%;
   left: 50%;
-  transform: translate(-50%, 0);
+  transform: translate(-50%, 50%);
+  font-size: 2vw;
 `
 
 const BottomText = styled.h1`
