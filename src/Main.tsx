@@ -45,7 +45,6 @@ function Main() {
     <AppContainer direction={"column"} flexWrap={"nowrap"} container height={"100%"}>
       {/*<Grid2>*/}
       {/*  <OutletContainer flexGrow={1}>*/}
-          <Outlet />
       {/*  </OutletContainer>*/}
 
       {/*</Grid2>*/}
@@ -71,6 +70,8 @@ function Main() {
           <SocialMediaLabel>Discord</SocialMediaLabel>
         </SocialMedia>
       </SocialMediaContainer>
+        <Outlet />
+
     </AppContainer>
   );
 }
@@ -83,7 +84,7 @@ const AppContainer = styled(Grid2)`
   min-height: 100vh;
   background: rgb(60,61,66);
   background: radial-gradient(circle at top, rgba(60,61,66,1) 0%, rgba(26,26,31,1) 50%);
-  position: absolute;
+  //position: absolute;
   z-index: -2;
   overflow: hidden;
   & > div {
@@ -95,10 +96,11 @@ const Nav = styled.div`
   justify-content: space-between;
   //align-items: center;
   margin: max(3%, 30px);
-  position: absolute;
+  //position: absolute;
   width: calc(100% - 2*max(3%, 30px));
   // z-index: 10;
-  top: 0;
+  //top: 0;
+  position: fixed;
 `
 const NavImageBigger = styled.img`
   height: 5vh;
@@ -159,7 +161,7 @@ const Info = styled.p`
 
 
 const SocialMediaContainer = styled.div`
-  position: absolute;
+  position: fixed;
   bottom: 5%;
   left: 3%;
   color: white;
