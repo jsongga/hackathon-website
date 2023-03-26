@@ -46,6 +46,7 @@ function Main() {
       {/*<Grid2>*/}
       {/*  <OutletContainer flexGrow={1}>*/}
       {/*  </OutletContainer>*/}
+        <Outlet />
 
       {/*</Grid2>*/}
       <Nav>
@@ -70,7 +71,6 @@ function Main() {
           <SocialMediaLabel>Discord</SocialMediaLabel>
         </SocialMedia>
       </SocialMediaContainer>
-        <Outlet />
 
     </AppContainer>
   );
@@ -80,6 +80,7 @@ export default Main;
 
 const AppContainer = styled(Grid2)`
   width: 100vw;
+
   // height: unset !important;
   min-height: 100vh;
   background: rgb(60,61,66);

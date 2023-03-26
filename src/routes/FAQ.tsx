@@ -9,15 +9,15 @@ export default function FAQ() {
     <QAGrid>
       <QAContainer>
         <h2>What is Hackathon Atlanta?</h2>
-        <p>Hackathon Atlanta is a x-hour hackathon that brings together students from all over the world to build projects and learn from each other.</p>
+        <p>Hackathon Atlanta is a 32-hour hackathon that brings together students from all over the world to build projects and learn from each other.</p>
       </QAContainer>
       <QAContainer>
         <h2>When is Hackathon Atlanta?</h2>
-        <p>Hackathon Atlanta 2023 will be held on ???.</p>
+        <p>Hackathon Atlanta 2023 will be held from April 22 - April 23.</p>
       </QAContainer>
       <QAContainer>
         <h2>Where is Hackathon Atlanta?</h2>
-        <p>Hackathon Atlanta 2023 will be held at ???.</p>
+        <p>Hackathon Atlanta 2023 will be held at Johns Creek High School.</p>
       </QAContainer>
       <QAContainer>
         <h2>Who can attend?</h2>
@@ -25,11 +25,7 @@ export default function FAQ() {
       </QAContainer>
       <QAContainer>
         <h2>How much does it cost?</h2>
-        <p>Hackathon Atlanta is completely free to attend. (?)</p>
-      </QAContainer>
-      <QAContainer>
-        <h2>How do I register?</h2>
-        <p>Registration for Hackathon Atlanta 2023 will open in ???. Stay tuned!</p>
+        <p>Hackathon Atlanta is completely free to attend. Food and Drinks will be provided!</p>
       </QAContainer>
       <QAContainer>
         <h2>What if I don't have a team?</h2>
@@ -39,39 +35,51 @@ export default function FAQ() {
         <h2>What if I don't have any experience?</h2>
         <p>That's okay! We will have workshops and mentors to help you get started. You can also use our Discord server to ask questions.</p>
       </QAContainer>
+      <QAContainer>
+        <h2>I still have more questions. Where can I go?</h2>
+        <p>Join our discord and ask your questions!</p>
+      </QAContainer>
     </QAGrid>
     </PageContainer>
 }
 
 const PageContainer = styled(Container)`
-  margin-top: 0;
+  margin-top: 140px;
   color: white;
+  display: flex;
+
 `
+
 const Heading = styled.h1`
   color: white;
   text-align: center;
-  position: absolute;
-  top: 7%;
-  right: 50%;
-  transform: translate(50%, -50%);
-  font-size: 2vw;
+  //position: absolute;
+  //top: 7%;
+  //right: 50%;
+  //transform: translate(50%, -50%);
+  font-size: min(4vw, 30px);
 `
 const QAGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 2em;
-  margin: 1em 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2em;
   padding: 0 1em;
-  position: absolute;
-  top: 45%;
-  right: 50%;
-  transform: translate(50%, -50%);
-  width: 70%;
-  height: 60%;
+  margin: max(3%, 30px);
+
+  //position: absolute;
+  //top: 45%;
+  //right: 50%;
+  //transform: translate(50%, -50%);
+  //width: 70%;
+  //height: 60%;
 `
 
 const QAContainer = styled.div`
   display: flex;
+  flex: 1 1 0;
+  min-width: 40em;
+  cursor: pointer;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
@@ -96,13 +104,13 @@ const QAContainer = styled.div`
     filter: drop-shadow(0 0 0.75vmin white);
   }
   h2 {
-    font-size: 1.3vw;
+    font-size: 3em;
     font-weight: 600;
     margin: 0.5vh 0.5vw;
   }
 
   p {
-    font-size: 1vw;
+    font-size: 1.8em;
     font-weight: 400;
     margin: 0.5vh 0.5vw;
   }
