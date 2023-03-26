@@ -325,15 +325,6 @@ const BottomDonationText = styled(BottomText)`
   &:hover {
     animation: none;
   }
-  
-  @keyframes pulse {
-    0% , 100% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.1);
-    }
-  }
 `
 
 const IntroAnimation = styled.div`
