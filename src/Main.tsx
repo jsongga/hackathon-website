@@ -56,7 +56,7 @@ function Main() {
         <StyledLink to={"/"}>
           <NavImage src={name}  alt={"Hackathon ATL"}/>
             <InfoContainer>
-                <Info>April 25-27, 2023</Info>
+                <Info>April 22-23, 2023</Info>
                 <Info id={"countdown"}>10:39:33:28</Info>
             </InfoContainer>
         </StyledLink>
