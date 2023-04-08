@@ -66,7 +66,7 @@ function Main() {
           <FaInstagram />
           <SocialMediaLabel>Instagram</SocialMediaLabel>
         </SocialMedia>
-        <SocialMedia onClick={() => window.open("https://discord.gg/TRjzhjHc")}>
+        <SocialMedia onClick={() => window.open("https://discord.gg/M8eEEQEZkq")}>
           <FaDiscord />
           <SocialMediaLabel>Discord</SocialMediaLabel>
         </SocialMedia>
